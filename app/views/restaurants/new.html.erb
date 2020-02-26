@@ -1,0 +1,20 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :restaurant_name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+  <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
